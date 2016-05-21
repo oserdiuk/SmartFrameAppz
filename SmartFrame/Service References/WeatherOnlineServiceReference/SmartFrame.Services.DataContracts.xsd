@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SmartFrame.Services.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SmartFrame.Services.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="WeatherData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Temperature" type="xs:int" />
+      <xs:element minOccurs="0" name="TemperatureFeelsLike" type="xs:int" />
+      <xs:element minOccurs="0" name="WindDirectionType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WindGust" type="xs:int" />
+      <xs:element minOccurs="0" name="WindSpeed" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WeatherData" nillable="true" type="tns:WeatherData" />
+</xs:schema>

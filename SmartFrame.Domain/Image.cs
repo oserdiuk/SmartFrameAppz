@@ -8,6 +8,14 @@ namespace SmartFrame.Domain
 {
     public class Image
     {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public virtual int OwnerId { get; set; }
+
+        public virtual int MoodId { get; set; }
+
         public virtual User Owner { get; set; }
         public virtual Mood Mood { get; set; }
     }

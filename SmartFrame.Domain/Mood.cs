@@ -8,7 +8,12 @@ namespace SmartFrame.Domain
 {
     public class Mood
     {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
         public virtual ICollection<User> Users{ get; set; }
+
         public virtual ICollection<Image> Images{ get; set; }
     }
 }
