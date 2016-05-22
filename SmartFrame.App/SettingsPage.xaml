@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="SmartFrame.App.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SmartFrame.App"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel HorizontalAlignment="Left"
+                    Margin="20 10 10 10"
+                    VerticalAlignment="Center">
+            <TextBlock MinHeight="10" 
+                     MinWidth="100"
+                     Margin="5 5 5 5"
+                     Text="Choose what pictures will be displayed on your device"
+                     x:Name="SelectImageModeTb"/>
+            <ComboBox x:Name="SelectImageModeCmbB"
+                    Margin="10 10 10 10"
+                    PlaceholderText="Choose image mode"
+                    MinHeight="10" 
+                    MinWidth="100"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Id" 
+                    ItemsSource="{Binding 'PhotoModeItems'}"/>
+            <Button MinHeight="10" 
+                     MinWidth="100"
+                     Margin="5 5 5 5"
+                     Content="Upload your pictures"
+                     x:Name="UploadImagesTb" 
+                    Click="UploadImagesTb_Click"/>
+            <Image x:Name="SelectedImage" 
+                   HorizontalAlignment="Left" 
+                   Height="316" 
+                   Width="456"/>
+
+        </StackPanel>
+    </Grid>
+</Page>

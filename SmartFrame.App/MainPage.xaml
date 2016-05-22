@@ -8,6 +8,33 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <TextBox MinHeight="10" 
+                     MinWidth="100"
+                     Margin="5 5 5 5"
+                     x:Name="UserNameTb"
+                     Text="test"
+                     PlaceholderText="Enter id of your device"/>
+            <PasswordBox MinHeight="10" 
+                     MinWidth="100"
+                     Password="test"
+                     Margin="5 5 5 5"
+                     x:Name="PasswordTb"
+                     PlaceholderText="Password"/>
+            <Button MinHeight="10" 
+                     MinWidth="100"
+                     HorizontalAlignment="Center"
+                     Margin="5 5 5 5"
+                     Content="Login"
+                     x:Name="LogibBtn"
+                     Click="LogibBtn_Click"/>
+            <TextBlock MinHeight="10" 
+                     MinWidth="100"
+                     Foreground="Red"
+                     HorizontalAlignment="Center"
+                     Margin="5 5 5 5"
+                     x:Name="ErrorTb"/> 
+        </StackPanel>
     </Grid>
 </Page>

@@ -13,6 +13,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartFrame.DAL", "SmartFrame.DAL\SmartFrame.DAL.csproj", "{D7327647-CEF2-4A20-A017-869F54BADBD0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartFrame.App", "SmartFrame.App\SmartFrame.App.csproj", "{23399F12-03A0-4AB7-B40F-C68E0B48CA6B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7377D51D-941B-4160-9505-284ED7190D1C} = {7377D51D-941B-4160-9505-284ED7190D1C}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutofacModules", "AutofacModules\AutofacModules.csproj", "{B527AFA2-B53A-4682-B838-8C543DCFFF53}"
 EndProject

@@ -144,6 +144,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\AuthorizationServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\WeatherOnlineServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -171,9 +176,28 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Service References\AuthorizationServiceReference\service.wsdl" />
+    <None Include="Service References\AuthorizationServiceReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthorizationServiceReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\AuthorizationServiceReference\SmartFrame.AuthorizationServiceReference.UserContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\AuthorizationServiceReference\SmartFrame.Services.DataContracts.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\WeatherOnlineServiceReference\configuration91.svcinfo" />
     <None Include="Service References\WeatherOnlineServiceReference\configuration.svcinfo" />
     <None Include="Service References\WeatherOnlineServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AuthorizationServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\AuthorizationServiceReference\configuration.svcinfo" />
+    <None Include="Service References\AuthorizationServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -229,6 +253,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AuthorizationServiceReference\" />
     <WCFMetadataStorage Include="Service References\WeatherOnlineServiceReference\" />
   </ItemGroup>
   <PropertyGroup>

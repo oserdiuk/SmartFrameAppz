@@ -17,6 +17,7 @@ namespace SmartFrame.Domain
         public virtual int MoodId { get; set; }
 
         public virtual User Owner { get; set; }
+
         public virtual Mood Mood { get; set; }
     }
 }

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
 using System.Threading.Tasks;
 using APIXULib;
 using AutoMapper;
@@ -13,9 +8,9 @@ using SmartFrame.DAL;
 using SmartFrame.DAL.Interfaces;
 using SmartFrame.Domain;
 using SmartFrame.Services.DataContracts;
-using SmartFrame.Services.MapperProfiles;
+using SmartFrame.Services.ServiceContracts;
 
-namespace SmartFrame.Services
+namespace SmartFrame.Services.Services
 {
     public class WeatherOnlineService : IWeatherOnlineService
     {

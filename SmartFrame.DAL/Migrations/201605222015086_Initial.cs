@@ -3,7 +3,7 @@ namespace SmartFrame.DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddedAllModels : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {

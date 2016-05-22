@@ -109,11 +109,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutofacConfig.cs" />
+    <Compile Include="DataContracts\ImageContract.cs" />
+    <Compile Include="DataContracts\MoodContract.cs" />
+    <Compile Include="DataContracts\PhotoModeContract.cs" />
+    <Compile Include="DataContracts\UserContract.cs" />
     <Compile Include="DataContracts\WeatherData.cs" />
-    <Compile Include="IWeatherOnlineService.cs" />
-    <Compile Include="MapperProfiles\WeatherProfile.cs" />
+    <Compile Include="DataContracts\WeatherSavedContract.cs" />
+    <Compile Include="ServiceContracts\IPhotoModeService.cs" />
+    <Compile Include="Services\AuthService.cs" />
+    <Compile Include="ServiceContracts\IAuthService.cs" />
+    <Compile Include="IPrincipal\Interfaces\IUserIdentity.cs" />
+    <Compile Include="IPrincipal\UserIdentity.cs" />
+    <Compile Include="IPrincipal\UserProvider.cs" />
+    <Compile Include="ServiceContracts\IWeatherOnlineService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WeatherOnlineService.cs" />
+    <Compile Include="Services\PhotoModeService.cs" />
+    <Compile Include="Services\WeatherOnlineService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

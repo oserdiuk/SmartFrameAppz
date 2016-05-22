@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac.Integration.Wcf;
+using SmartFrame.Services.Services;
 
 namespace SmartFrame.Services
 {
