@@ -1,7 +1,7 @@
-﻿using SmartFrame.Services.DataContracts;
-using SmartFrame.Services.IPrincipal.Interfaces;
+﻿using SmartFrame.AuthorizationServiceReference;
+using SmartFrame.Utils.Auth.Interfaces;
 
-namespace SmartFrame.Services.IPrincipal
+namespace SmartFrame.Utils.Auth
 {
     public class UserIdentity : IUserIdentity
     {

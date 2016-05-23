@@ -80,6 +80,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http">
       <HintPath>..\packages\System.Net.Http.2.0.20126.16343\lib\net40\System.Net.Http.dll</HintPath>
@@ -116,13 +117,12 @@
     <Compile Include="DataContracts\WeatherData.cs" />
     <Compile Include="DataContracts\WeatherSavedContract.cs" />
     <Compile Include="ServiceContracts\IPhotoModeService.cs" />
+    <Compile Include="ServiceContracts\IImageService.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="ServiceContracts\IAuthService.cs" />
-    <Compile Include="IPrincipal\Interfaces\IUserIdentity.cs" />
-    <Compile Include="IPrincipal\UserIdentity.cs" />
-    <Compile Include="IPrincipal\UserProvider.cs" />
     <Compile Include="ServiceContracts\IWeatherOnlineService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ImageService.cs" />
     <Compile Include="Services\PhotoModeService.cs" />
     <Compile Include="Services\WeatherOnlineService.cs" />
   </ItemGroup>
@@ -145,6 +145,9 @@
       <Project>{f99a794d-5c0b-4569-8c20-ad7fbfead244}</Project>
       <Name>SmartFrame.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

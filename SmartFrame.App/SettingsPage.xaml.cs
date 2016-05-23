@@ -32,9 +32,9 @@ namespace SmartFrame.App
     /// </summary>
     public sealed partial class SettingsPage : Page, INotifyPropertyChanged
     {
-        private List<PhotoModeItem> photoModeItems;
+        private ObservableCollection<PhotoModeItem> photoModeItems;
 
-        public List<PhotoModeItem> PhotoModeItems
+        public ObservableCollection<PhotoModeItem> PhotoModeItems
         {
             get { return photoModeItems; }
             set
@@ -67,21 +67,22 @@ namespace SmartFrame.App
             PhotoModeServiceClient client = new PhotoModeServiceClient();
             var imageModes = await client.GetAllAsync();
             await client.CloseAsync();
-            PhotoModeItems = Mapper.Map<List<PhotoModeItem>>(imageModes);
+            PhotoModeItems = Mapper.Map<ObservableCollection<PhotoModeItem>>(imageModes);
         }
 
         private async void UploadImagesTb_Click(object sender, RoutedEventArgs e)
         {
-            FileOpenPicker fp = new FileOpenPicker();
-            fp.FileTypeFilter.Add(".jpeg");
-            fp.FileTypeFilter.Add(".png");
-            fp.FileTypeFilter.Add(".bmp");
-            fp.FileTypeFilter.Add(".jpg");
-            StorageFile sf = await fp.PickSingleFileAsync();
-            var stream = await sf.OpenAsync(FileAccessMode.Read);
-            var bitmapImage = new BitmapImage();
-            bitmapImage.SetSource(stream);
-            SelectedImage.Source = bitmapImage;
+            FileOpenPicker picker = new FileOpenPicker();
+            picker.FileTypeFilter.Add(".jpeg");
+            picker.FileTypeFilter.Add(".png");
+            picker.FileTypeFilter.Add(".bmp");
+            picker.FileTypeFilter.Add(".jpg");
+            var sf = await picker.PickMultipleFilesAsync();
+            
+            //var stream = await sf.OpenAsync(FileAccessMode.Read);
+            //var bitmapImage = new BitmapImage();
+            //bitmapImage.SetSource(stream);
+            //SelectedImage.Source = bitmapImage;
         }
     }
 }
