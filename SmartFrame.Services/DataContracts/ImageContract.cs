@@ -10,5 +10,13 @@ namespace SmartFrame.Services.DataContracts
     [DataContract]
     public class ImageContract
     {
+        [DataMember]
+        public byte[] ImageBytes { get; set; }
+
+        [DataMember]
+        public string ImageName { get; set; }
+
+        [DataMember]
+        public UserContract Owner { get; set; }
     }
 }

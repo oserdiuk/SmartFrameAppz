@@ -38,9 +38,9 @@ namespace SmartFrame.Services.DataContracts
         public MoodContract Mood { get; set; }
 
         [DataMember]
-        public ICollection<ImageContract> Images { get; set; }
+        public List<ImageContract> Images { get; set; }
 
         [DataMember]
-        public ICollection<WeatherSavedContract> Weather { get; set; }
+        public List<WeatherSavedContract> Weather { get; set; }
     }
 }

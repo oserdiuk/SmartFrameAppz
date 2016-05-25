@@ -16,7 +16,9 @@ namespace SmartFrame.Utils.Auth
 
         public UserContract Login(string userName, string password)
         {
-            UserContract retUser = AuthService.Login(userName, password);
+            AuthServiceClient client = new AuthServiceClient();
+            UserContract retUser = client.Login(userName, password);
+            client.Close();
             if (retUser != null)
             {
                 CreateCookie(userName, true);

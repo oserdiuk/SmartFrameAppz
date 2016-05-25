@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -34,6 +36,29 @@ namespace SmartFrame.Services.Services
                .ForMember(m => m.DateTime, opt => opt.UseValue(DateTime.UtcNow));
         }
 
+        public async Task<WeatherData> GetWeatherForUser(string userName)
+        {
+            var user = unitOfWork.UserRepository.Get(u => u.UserName == userName).FirstOrDefault();
+            if (user == null)
+            {
+                throw new KeyNotFoundException("User not found with name " + userName);
+            }
+
+            return await GetWeather("poltava");
+        }
+
+        public async Task<List<WeatherData>> GetSavedWeatherForUser(string userName)
+        {
+            var user = unitOfWork.UserRepository.Get(u => u.UserName == userName).FirstOrDefault();
+            if (user == null)
+            {
+                throw new KeyNotFoundException("User not found with name " + userName);
+            }
+
+            var weather = unitOfWork.WeatherSavedRepository.Get(w => w.User.UserName == userName).ToList();
+            return Mapper.Map<List<WeatherData>>(weather);
+        }
+        
         public async Task<WeatherData> GetWeather(string city)
         {
             var key = "7d92a5b875894f2cb5e173301162105";

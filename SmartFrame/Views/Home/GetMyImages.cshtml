@@ -1,0 +1,30 @@
+﻿@model SmartFrame.Models.Images.UserImageViewModel
+
+@{
+    ViewBag.Title = "My images";
+}
+
+<h2>My images</h2>
+
+@using (Html.BeginForm("UploadImage", "Home", FormMethod.Post,
+                                                                new { enctype = "multipart/form-data" }))
+{
+    <label for="file">Upload Image:</label>
+    <input type="file" name="file" id="file" style="width: 100%;" />
+    <input type="submit" value="Upload" class="submit" />
+}
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            <img src="~/Content/Images/14839200148_e39b2136f0_o.jpg" />
+        </dd>
+        <dd>
+            <img src="~/Content/Images/LQiFPNoZ--M.jpg" />
+        </dd>
+        <dd>
+            <img src="~/Content/Images/test.jpg" />
+        </dd>
+    </dl>
+</div>

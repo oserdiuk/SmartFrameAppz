@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ed365ba6-2f2a-4e83-afb8-68d42280108c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="92fe8dc3-8fb6-46a2-b008-5da8e72a8925" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8733/api/weatheronline/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="0ee17c50-08d4-48de-9e6d-0afd4a2bfde7" SourceId="1" SourceUrl="http://localhost:8733/api/weatheronline/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="10c67bc5-be0a-4d0e-8d56-f91393e315e0" SourceId="1" SourceUrl="http://localhost:8733/api/weatheronline/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="4375494c-6eda-41fa-8393-b5dbe60677f7" SourceId="1" SourceUrl="http://localhost:8733/api/weatheronline/mex" />
-    <MetadataFile FileName="SmartFrame.Services.DataContracts.xsd" MetadataType="Schema" ID="786824fb-4478-434b-a389-c25d780aa528" SourceId="1" SourceUrl="http://localhost:8733/api/weatheronline/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="921e92e4-81e1-461f-8d38-73b89c5c1e90" SourceId="1" SourceUrl="http://localhost:8733/api/weatheronline/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="c44b6ad6-90f0-4d7a-8077-f9bad55f95d0" SourceId="1" SourceUrl="http://localhost:8733/api/weatheronline/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="b25d3e7f-a7d1-4a2f-a377-2dc7609797c1" SourceId="1" SourceUrl="http://localhost:8733/api/weatheronline/mex" />
+    <MetadataFile FileName="SmartFrame.Services.DataContracts.xsd" MetadataType="Schema" ID="b6440336-c037-406a-9fec-7c1c5e57e518" SourceId="1" SourceUrl="http://localhost:8733/api/weatheronline/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

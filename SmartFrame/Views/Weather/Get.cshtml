@@ -1,10 +1,12 @@
 ﻿@model SmartFrame.Models.Weather.WeatherViewModel
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Weather";
 }
 
 <div>
+    <h4>Weather in my city</h4>
+    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.WindDirectionType)

@@ -12,4 +12,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WeatherData" nillable="true" type="tns:WeatherData" />
+  <xs:complexType name="ArrayOfWeatherData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WeatherData" nillable="true" type="tns:WeatherData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWeatherData" nillable="true" type="tns:ArrayOfWeatherData" />
 </xs:schema>

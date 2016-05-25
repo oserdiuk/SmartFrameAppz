@@ -111,6 +111,7 @@
   <ItemGroup>
     <Compile Include="AutofacConfig.cs" />
     <Compile Include="DataContracts\ImageContract.cs" />
+    <Compile Include="DataContracts\ImageDataContract.cs" />
     <Compile Include="DataContracts\MoodContract.cs" />
     <Compile Include="DataContracts\PhotoModeContract.cs" />
     <Compile Include="DataContracts\UserContract.cs" />

@@ -17,9 +17,9 @@ namespace SmartFrame.Services.DataContracts
         public string Name { get; set; }
 
         [DataMember]
-        public ICollection<UserContract> Users { get; set; }
+        public List<UserContract> Users { get; set; }
 
         [DataMember]
-        public ICollection<ImageContract> Images { get; set; }
+        public List<ImageContract> Images { get; set; }
     }
 }

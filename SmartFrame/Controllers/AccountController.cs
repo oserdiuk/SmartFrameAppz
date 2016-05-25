@@ -15,9 +15,9 @@ namespace SmartFrame.Controllers
     {
         private IAuthentication authentication;
 
-        public AccountController(IAuthentication authentication)
+        public AccountController(IAuthentication auth)
         {
-            this.authentication = authentication;
+            this.authentication = auth;
             Mapper.CreateMap<UserContract, LoginViewModel>().ReverseMap();
             Mapper.CreateMap<UserContract, RegisterViewModel>().ReverseMap();
         }
@@ -35,9 +35,10 @@ namespace SmartFrame.Controllers
                 var user = authentication.Login(model.UserName, model.Password);
                 if (user != null)
                 {
-                    return RedirectToAction("GetAll", "Game");
+                    return RedirectToAction("Index", "Home");
                 }
             }
+
             return View(model);
         }
 
@@ -63,6 +64,7 @@ namespace SmartFrame.Controllers
                     return RedirectToAction("GetAll", "Game");
                 }
             }
+
             return View(model);
         }
     }

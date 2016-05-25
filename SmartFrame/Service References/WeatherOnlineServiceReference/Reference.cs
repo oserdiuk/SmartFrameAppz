@@ -163,6 +163,18 @@ namespace SmartFrame.WeatherOnlineServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWeatherOnlineService/GetWeather", ReplyAction="http://tempuri.org/IWeatherOnlineService/GetWeatherResponse")]
         System.Threading.Tasks.Task<SmartFrame.WeatherOnlineServiceReference.WeatherData> GetWeatherAsync(string city);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWeatherOnlineService/GetWeatherForUser", ReplyAction="http://tempuri.org/IWeatherOnlineService/GetWeatherForUserResponse")]
+        SmartFrame.WeatherOnlineServiceReference.WeatherData GetWeatherForUser(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWeatherOnlineService/GetWeatherForUser", ReplyAction="http://tempuri.org/IWeatherOnlineService/GetWeatherForUserResponse")]
+        System.Threading.Tasks.Task<SmartFrame.WeatherOnlineServiceReference.WeatherData> GetWeatherForUserAsync(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWeatherOnlineService/GetSavedWeatherForUser", ReplyAction="http://tempuri.org/IWeatherOnlineService/GetSavedWeatherForUserResponse")]
+        SmartFrame.WeatherOnlineServiceReference.WeatherData[] GetSavedWeatherForUser(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWeatherOnlineService/GetSavedWeatherForUser", ReplyAction="http://tempuri.org/IWeatherOnlineService/GetSavedWeatherForUserResponse")]
+        System.Threading.Tasks.Task<SmartFrame.WeatherOnlineServiceReference.WeatherData[]> GetSavedWeatherForUserAsync(string userName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -198,6 +210,22 @@ namespace SmartFrame.WeatherOnlineServiceReference {
         
         public System.Threading.Tasks.Task<SmartFrame.WeatherOnlineServiceReference.WeatherData> GetWeatherAsync(string city) {
             return base.Channel.GetWeatherAsync(city);
+        }
+        
+        public SmartFrame.WeatherOnlineServiceReference.WeatherData GetWeatherForUser(string userName) {
+            return base.Channel.GetWeatherForUser(userName);
+        }
+        
+        public System.Threading.Tasks.Task<SmartFrame.WeatherOnlineServiceReference.WeatherData> GetWeatherForUserAsync(string userName) {
+            return base.Channel.GetWeatherForUserAsync(userName);
+        }
+        
+        public SmartFrame.WeatherOnlineServiceReference.WeatherData[] GetSavedWeatherForUser(string userName) {
+            return base.Channel.GetSavedWeatherForUser(userName);
+        }
+        
+        public System.Threading.Tasks.Task<SmartFrame.WeatherOnlineServiceReference.WeatherData[]> GetSavedWeatherForUserAsync(string userName) {
+            return base.Channel.GetSavedWeatherForUserAsync(userName);
         }
     }
 }

@@ -1,9 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using SmartFrame.AuthorizationServiceReference;
+using SmartFrame.ImageServiceReference;
+using SmartFrame.Models.Images;
+using SmartFrame.Models.Weather;
 using SmartFrame.WeatherOnlineServiceReference;
 
 namespace SmartFrame.Controllers
@@ -12,22 +18,41 @@ namespace SmartFrame.Controllers
     {
         public ActionResult Index()
         {
-            using (var client = new WeatherOnlineServiceClient())
-            {
-                var weather = client.GetWeather("poltava");
-            }
-            return View();
+            Mapper.CreateMap<WeatherData, WeatherViewModel>().ReverseMap();
+            WeatherViewModel model = new WeatherViewModel();
+            //using (var client = new WeatherOnlineServiceClient())
+            //{
+            //    var weather = client.GetWeather("poltava");
+            //    model = Mapper.Map<WeatherViewModel>(weather);
+            //}
+
+            return View(model);
         }
 
-        public ActionResult GetMyDevices()
+        public ActionResult GetMyImages()
         {
-            using (var client = new AuthServiceClient())
-            {
-                var weather = client.GetMyImages(User.Identity.Name);
-            }
-            return View();
+            var model = new UserImageViewModel();
+            return View(model);
         }
 
+        public ActionResult UploadImage(HttpPostedFileBase file)
+        {
+            if (file != null)
+            {
+                byte[] imageBuffer;
+                using (var ms = new MemoryStream())
+                {
+                    file.InputStream.CopyTo(ms);
+                    imageBuffer = ms.GetBuffer();
+                }
 
+                using (var client = new ImageServiceClient())
+                {
+                    client.UploadImage(imageBuffer, 0, User.Identity.Name);
+                }
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
