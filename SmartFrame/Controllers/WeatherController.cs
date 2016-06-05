@@ -34,10 +34,10 @@ namespace SmartFrame.Controllers
             using (var client = new WeatherOnlineServiceClient())
             {
                 var weather = client.GetWeatherForUser(User.Identity.Name);
-                model.WeatherOnline = Mapper.Map<List<WeatherViewModel>>(weather);
+                model.WeatherOnline = Mapper.Map<WeatherViewModel>(weather);
 
                 var savedWeather = client.GetSavedWeatherForUser(User.Identity.Name);
-                model.WeatherSaved = Mapper.Map<List<WeatherViewModel>>(savedWeather);
+                model.WeatherSaved = Mapper.Map<WeatherViewModel>(savedWeather);
             }
 
             return View(model);

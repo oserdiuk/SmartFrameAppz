@@ -11,7 +11,7 @@ namespace SmartFrame.Services.ServiceContracts
     public interface IImageService
     {
         [OperationContract]
-        List<ImageContract> GetMyImages(string username);
+        ImageContract GetMyImages(string username);
 
         [OperationContract]
         bool UploadImage(byte[] imageBytes, int moodId, string userName);

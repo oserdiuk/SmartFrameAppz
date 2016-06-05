@@ -23,7 +23,11 @@
   </xs:complexType>
   <xs:element name="ArrayOfImageContract" nillable="true" type="tns:ArrayOfImageContract" />
   <xs:complexType name="ImageContract">
-    <xs:sequence />
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ImageBytes" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ImageName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Owner" nillable="true" type="tns:UserContract" />
+    </xs:sequence>
   </xs:complexType>
   <xs:element name="ImageContract" nillable="true" type="tns:ImageContract" />
   <xs:complexType name="MoodContract">

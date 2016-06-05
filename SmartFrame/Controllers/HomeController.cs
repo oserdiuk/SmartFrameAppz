@@ -14,25 +14,32 @@ using SmartFrame.WeatherOnlineServiceReference;
 
 namespace SmartFrame.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
             Mapper.CreateMap<WeatherData, WeatherViewModel>().ReverseMap();
             WeatherViewModel model = new WeatherViewModel();
-            //using (var client = new WeatherOnlineServiceClient())
-            //{
-            //    var weather = client.GetWeather("poltava");
-            //    model = Mapper.Map<WeatherViewModel>(weather);
-            //}
+            using (var client = new WeatherOnlineServiceClient())
+            {
+                var weather = client.GetWeather("poltava");
+                model = Mapper.Map<WeatherViewModel>(weather);
+            }
 
             return View(model);
         }
 
         public ActionResult GetMyImages()
         {
-            var model = new UserImageViewModel();
-            return View(model);
+            Mapper.CreateMap<ImageServiceReference.ImageContract, UserImageViewModel>();
+
+            using (ImageServiceClient client = new ImageServiceClient())
+            {
+                var images = client.GetMyImages(User.Identity.Name);
+                var model = Mapper.Map<UserImageViewModel>(images);
+                return View(model);
+            }
         }
 
         public ActionResult UploadImage(HttpPostedFileBase file)

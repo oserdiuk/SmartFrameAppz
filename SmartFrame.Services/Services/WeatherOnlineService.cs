@@ -47,7 +47,7 @@ namespace SmartFrame.Services.Services
             return await GetWeather("poltava");
         }
 
-        public async Task<List<WeatherData>> GetSavedWeatherForUser(string userName)
+        public async Task<WeatherData> GetSavedWeatherForUser(string userName)
         {
             var user = unitOfWork.UserRepository.Get(u => u.UserName == userName).FirstOrDefault();
             if (user == null)
@@ -55,8 +55,8 @@ namespace SmartFrame.Services.Services
                 throw new KeyNotFoundException("User not found with name " + userName);
             }
 
-            var weather = unitOfWork.WeatherSavedRepository.Get(w => w.User.UserName == userName).ToList();
-            return Mapper.Map<List<WeatherData>>(weather);
+            var weather = unitOfWork.WeatherSavedRepository.Get(w => w.User.UserName == userName).LastOrDefault();
+            return Mapper.Map<WeatherData>(weather);
         }
         
         public async Task<WeatherData> GetWeather(string city)

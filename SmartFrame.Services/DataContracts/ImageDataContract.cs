@@ -8,15 +8,24 @@ using System.Threading.Tasks;
 namespace SmartFrame.Services.DataContracts
 {
     [DataContract]
-    public class ImageContract
+    public class ImageDataContract
     {
         [DataMember]
-        public List<string> ImageNames{ get; set; }
+        public int Id { get; set; }
 
         [DataMember]
-        public string ImagesPath{ get; set; }
+        public string Name { get; set; }
+
+        [DataMember]
+        public int OwnerId { get; set; }
+
+        [DataMember]
+        public int MoodId { get; set; }
 
         [DataMember]
         public UserContract Owner { get; set; }
+
+        [DataMember]
+        public MoodContract Mood { get; set; }
     }
 }

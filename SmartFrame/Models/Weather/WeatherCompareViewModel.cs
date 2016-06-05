@@ -7,8 +7,8 @@ namespace SmartFrame.Models.Weather
 {
     public class WeatherCompareViewModel
     {
-        public List<WeatherViewModel> WeatherOnline { get; set; }
+        public WeatherViewModel WeatherOnline { get; set; }
 
-        public List<WeatherViewModel> WeatherSaved { get; set; }
+        public WeatherViewModel WeatherSaved { get; set; }
     }
 }

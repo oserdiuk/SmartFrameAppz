@@ -5,8 +5,10 @@ using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Hosting;
 using AutoMapper;
 using SmartFrame.DAL;
 using SmartFrame.DAL.Interfaces;
@@ -29,14 +31,20 @@ namespace SmartFrame.Services.Services
             Mapper.CreateMap<ImageDataContract, Image>().ReverseMap();
         }
 
-        private string RelativeFilePath(string folder, string fileName, string extension = ".jpeg")
+        private string RelativeFilePath(string folder, string fileName)
         {
             var absoluteFolderPath = AppDomain.CurrentDomain.BaseDirectory + defaultImageFolder;
             System.IO.Directory.CreateDirectory(absoluteFolderPath); //creates if not exist
 
-            return string.Format("{0}{1}{2}",
+            return string.Format("{0}{1}",
                     absoluteFolderPath,
-                    fileName,
+                    fileName);
+        }
+
+        private string UniqueImageName(string extension = ".jpeg")
+        {
+            return string.Format("{0}{1}",
+                    Guid.NewGuid().ToString(),
                     extension);
         }
 
@@ -44,8 +52,8 @@ namespace SmartFrame.Services.Services
         {
             try
             {
-                Guid imageNameGuid = Guid.NewGuid();
-                var imagePath = this.RelativeFilePath(defaultImageFolder, imageNameGuid.ToString());
+                string imageFileName = UniqueImageName();
+                var imagePath = this.RelativeFilePath(defaultImageFolder, imageFileName);
                 using (var stream = new FileStream(imagePath, FileMode.OpenOrCreate))
                 {
                     stream.Write(imageBytes, 0, imageBytes.Length);
@@ -54,7 +62,7 @@ namespace SmartFrame.Services.Services
                 var currentUser = authService.GetByUserName(userName);
                 Domain.Image imageModel = new Domain.Image()
                 {
-                    Name = imageNameGuid.ToString(),
+                    Name = imageFileName,
                     MoodId = 1,
                     Owner = Mapper.Map<User>(currentUser)
                 };
@@ -69,33 +77,32 @@ namespace SmartFrame.Services.Services
             }
         }
 
-        public List<ImageContract> GetMyImages(string username)
+        public ImageContract GetMyImages(string username)
         {
+
+            var path = System.Web.Hosting.HostingEnvironment.MapPath("Images");
+            path = HostingEnvironment.MapPath("~/Images/");
+            if (path == null)
+            {
+                var uriPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase) + "\\Images\\";
+                path = new Uri(uriPath).LocalPath;
+            }
+
             var userImages = unitOfWork.ImageRepository.Get()
                                                        .Where(i => i.Owner.UserName == username).ToList();
-            var imagesBytes = new List<ImageContract>();
-            List<byte[]> imageByteArray = new List<byte[]>();
-            for (int i = 0; i < userImages.Count(); i++)
-            {
-                imageByteArray.Add(File.ReadAllBytes(this.RelativeFilePath(defaultImageFolder, userImages.ElementAt(i).Name)));
-            }
+            var images = new ImageContract();
+            images.ImageNames = userImages.Select(i => i.Name).ToList();
+            images.ImagesPath = path;
+
             Mapper.CreateMap<ImageContract, Image>();
             Mapper.CreateMap<Domain.Image, ImageContract>();
             Mapper.CreateMap<ImageDataContract, Domain.Image>();
             Mapper.CreateMap<Image, ImageDataContract>();
             Mapper.CreateMap<UserContract, User>();
             Mapper.CreateMap<User, UserContract>();
-            for (int i = 0; i < imageByteArray.Count; i++)
-            {
-                imagesBytes.Add(new ImageContract()
-                {
-                    Owner = Mapper.Map<UserContract>(userImages.ElementAt(i).Owner),
-                    ImageName = userImages.ElementAt(i).Name,
-                    ImageBytes = imageByteArray[i]
-                });
-            }
+            //images.Owner = Mapper.Map<UserContract>(userImages.FirstOrDefault()?.Owner);
 
-            return imagesBytes;
+            return images;
         }
     }
 }

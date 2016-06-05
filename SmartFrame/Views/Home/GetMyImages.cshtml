@@ -6,8 +6,7 @@
 
 <h2>My images</h2>
 
-@using (Html.BeginForm("UploadImage", "Home", FormMethod.Post,
-                                                                new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("UploadImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <label for="file">Upload Image:</label>
     <input type="file" name="file" id="file" style="width: 100%;" />
@@ -17,14 +16,12 @@
 <div>
     <hr />
     <dl class="dl-horizontal">
-        <dd>
-            <img src="~/Content/Images/14839200148_e39b2136f0_o.jpg" />
-        </dd>
-        <dd>
-            <img src="~/Content/Images/LQiFPNoZ--M.jpg" />
-        </dd>
-        <dd>
-            <img src="~/Content/Images/test.jpg" />
-        </dd>
+        @foreach (var item in Model.ImageNames)
+        {
+            <dd>
+                <img src="file:///D:/Study/SmartFrame/SmartFrame.Services/bin/Debug/Images/6f9f1c76-386c-4729-9b6a-b6c4e892e9e1.jpeg">
+                @*<img src=@String.Format("file:{0}{1}", Model.ImagesPath, item)/>*@
+            </dd>
+        }
     </dl>
 </div>

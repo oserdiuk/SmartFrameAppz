@@ -15,6 +15,6 @@ namespace SmartFrame.Services.ServiceContracts
         Task<WeatherData> GetWeatherForUser(string userName);
 
         [OperationContract]
-        Task<List<WeatherData>> GetSavedWeatherForUser(string userName);
+        Task<WeatherData> GetSavedWeatherForUser(string userName);
     }
 }

@@ -23,10 +23,10 @@ namespace SmartFrame.ImageServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] ImageBytesField;
+        private string[] ImageNamesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ImageNameField;
+        private string ImagesPathField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private SmartFrame.ImageServiceReference.UserContract OwnerField;
@@ -42,27 +42,27 @@ namespace SmartFrame.ImageServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] ImageBytes {
+        public string[] ImageNames {
             get {
-                return this.ImageBytesField;
+                return this.ImageNamesField;
             }
             set {
-                if ((object.ReferenceEquals(this.ImageBytesField, value) != true)) {
-                    this.ImageBytesField = value;
-                    this.RaisePropertyChanged("ImageBytes");
+                if ((object.ReferenceEquals(this.ImageNamesField, value) != true)) {
+                    this.ImageNamesField = value;
+                    this.RaisePropertyChanged("ImageNames");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ImageName {
+        public string ImagesPath {
             get {
-                return this.ImageNameField;
+                return this.ImagesPathField;
             }
             set {
-                if ((object.ReferenceEquals(this.ImageNameField, value) != true)) {
-                    this.ImageNameField = value;
-                    this.RaisePropertyChanged("ImageName");
+                if ((object.ReferenceEquals(this.ImagesPathField, value) != true)) {
+                    this.ImagesPathField = value;
+                    this.RaisePropertyChanged("ImagesPath");
                 }
             }
         }
@@ -611,10 +611,10 @@ namespace SmartFrame.ImageServiceReference {
     public interface IImageService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageService/GetMyImages", ReplyAction="http://tempuri.org/IImageService/GetMyImagesResponse")]
-        SmartFrame.ImageServiceReference.ImageContract[] GetMyImages(string username);
+        SmartFrame.ImageServiceReference.ImageContract GetMyImages(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageService/GetMyImages", ReplyAction="http://tempuri.org/IImageService/GetMyImagesResponse")]
-        System.Threading.Tasks.Task<SmartFrame.ImageServiceReference.ImageContract[]> GetMyImagesAsync(string username);
+        System.Threading.Tasks.Task<SmartFrame.ImageServiceReference.ImageContract> GetMyImagesAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageService/UploadImage", ReplyAction="http://tempuri.org/IImageService/UploadImageResponse")]
         bool UploadImage(byte[] imageBytes, int moodId, string userName);
@@ -650,11 +650,11 @@ namespace SmartFrame.ImageServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public SmartFrame.ImageServiceReference.ImageContract[] GetMyImages(string username) {
+        public SmartFrame.ImageServiceReference.ImageContract GetMyImages(string username) {
             return base.Channel.GetMyImages(username);
         }
         
-        public System.Threading.Tasks.Task<SmartFrame.ImageServiceReference.ImageContract[]> GetMyImagesAsync(string username) {
+        public System.Threading.Tasks.Task<SmartFrame.ImageServiceReference.ImageContract> GetMyImagesAsync(string username) {
             return base.Channel.GetMyImagesAsync(username);
         }
         

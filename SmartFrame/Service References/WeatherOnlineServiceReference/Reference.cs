@@ -171,10 +171,10 @@ namespace SmartFrame.WeatherOnlineServiceReference {
         System.Threading.Tasks.Task<SmartFrame.WeatherOnlineServiceReference.WeatherData> GetWeatherForUserAsync(string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWeatherOnlineService/GetSavedWeatherForUser", ReplyAction="http://tempuri.org/IWeatherOnlineService/GetSavedWeatherForUserResponse")]
-        SmartFrame.WeatherOnlineServiceReference.WeatherData[] GetSavedWeatherForUser(string userName);
+        SmartFrame.WeatherOnlineServiceReference.WeatherData GetSavedWeatherForUser(string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWeatherOnlineService/GetSavedWeatherForUser", ReplyAction="http://tempuri.org/IWeatherOnlineService/GetSavedWeatherForUserResponse")]
-        System.Threading.Tasks.Task<SmartFrame.WeatherOnlineServiceReference.WeatherData[]> GetSavedWeatherForUserAsync(string userName);
+        System.Threading.Tasks.Task<SmartFrame.WeatherOnlineServiceReference.WeatherData> GetSavedWeatherForUserAsync(string userName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -220,11 +220,11 @@ namespace SmartFrame.WeatherOnlineServiceReference {
             return base.Channel.GetWeatherForUserAsync(userName);
         }
         
-        public SmartFrame.WeatherOnlineServiceReference.WeatherData[] GetSavedWeatherForUser(string userName) {
+        public SmartFrame.WeatherOnlineServiceReference.WeatherData GetSavedWeatherForUser(string userName) {
             return base.Channel.GetSavedWeatherForUser(userName);
         }
         
-        public System.Threading.Tasks.Task<SmartFrame.WeatherOnlineServiceReference.WeatherData[]> GetSavedWeatherForUserAsync(string userName) {
+        public System.Threading.Tasks.Task<SmartFrame.WeatherOnlineServiceReference.WeatherData> GetSavedWeatherForUserAsync(string userName) {
             return base.Channel.GetSavedWeatherForUserAsync(userName);
         }
     }

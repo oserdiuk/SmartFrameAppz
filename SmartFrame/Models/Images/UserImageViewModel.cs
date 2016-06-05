@@ -8,8 +8,8 @@ namespace SmartFrame.Models.Images
 {
     public class UserImageViewModel
     {
-        public List<byte[]> Images { get; set; }
+        public List<string> ImageNames { get; set; }
 
-
+        public string ImagesPath { get; set; }
     }
 }
