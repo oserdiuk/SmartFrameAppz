@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="379bd514-6069-47f9-82f1-5233a2f61012" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/api/images/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="61c46fc1-6bee-4010-887c-54c83460dd33" SourceId="1" SourceUrl="http://localhost:8733/api/images/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="271e9329-ad43-4a36-9a5d-51f2741e1c7e" SourceId="1" SourceUrl="http://localhost:8733/api/images/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="3c2ed54d-eafd-4301-a855-0b15da557d63" SourceId="1" SourceUrl="http://localhost:8733/api/images/mex" />
+    <MetadataFile FileName="SmartFrame.Services.DataContracts.xsd" MetadataType="Schema" ID="633883ed-d647-410d-a81e-97f319d0aedb" SourceId="1" SourceUrl="http://localhost:8733/api/images/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="d2a7af79-3875-4811-900f-48cfaaf5108f" SourceId="1" SourceUrl="http://localhost:8733/api/images/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

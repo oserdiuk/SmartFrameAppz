@@ -24,6 +24,8 @@ namespace SmartFrame.App
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private const string loginSettingName = "login";
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -32,7 +34,7 @@ namespace SmartFrame.App
         private async void LogibBtn_Click(object sender, RoutedEventArgs e)
         {
             var localSettings = Current.LocalSettings;
-            var loginSetting = localSettings.Values["login"];
+            var loginSetting = localSettings.Values[loginSettingName];
             if (loginSetting == null)
             {
                 AuthServiceClient client = new AuthServiceClient();
@@ -43,7 +45,7 @@ namespace SmartFrame.App
                     ErrorTb.Text = "Invalid password or name.";
                     return;
                 }
-                loginSetting = user.UserName;
+                Current.LocalSettings.Values[loginSettingName] = user.UserName;
             }
             this.Frame.Navigate(typeof(SettingsPage));
         }

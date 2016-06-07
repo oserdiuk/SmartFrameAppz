@@ -45,7 +45,7 @@ namespace SmartFrame.Controllers
         public ActionResult Logout()
         {
             authentication.LogOut();
-            return RedirectToAction("GetAll", "Game");
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Register()

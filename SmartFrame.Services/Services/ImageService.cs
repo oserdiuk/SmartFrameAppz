@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Hosting;
 using AutoMapper;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 using SmartFrame.DAL;
 using SmartFrame.DAL.Interfaces;
 using SmartFrame.Domain;
@@ -22,7 +24,11 @@ namespace SmartFrame.Services.Services
     public class ImageService : IImageService
     {
         private IUnitOfWork unitOfWork = new UnitOfWork();
-        private string defaultImageFolder = "/Images/";
+        private string defaultImageFolder = "../../../Images/";
+
+        private const string cloudinaryApiKey = "439665995966528";
+        private const string cloudinarySecretKey = "gw30kfx_HIgSVbBsOiNGE9WTEuY";
+        private const string cloudinaryCloudName = "doljywzkx";
 
         public ImageService()
         {
@@ -48,26 +54,45 @@ namespace SmartFrame.Services.Services
                     extension);
         }
 
+        private Cloudinary configuredImageService()
+        {
+            Account account = new Account(
+                cloudinaryCloudName,
+                cloudinaryApiKey,
+                cloudinarySecretKey);
+
+            Cloudinary cloudinary = new Cloudinary(account);
+            return cloudinary;
+        }
+
         public bool UploadImage(byte[] imageBytes, int moodId, string userName)
         {
             try
             {
                 string imageFileName = UniqueImageName();
-                var imagePath = this.RelativeFilePath(defaultImageFolder, imageFileName);
-                using (var stream = new FileStream(imagePath, FileMode.OpenOrCreate))
+                var cloudinary = configuredImageService();
+                using (var stream = new MemoryStream(imageBytes))
                 {
-                    stream.Write(imageBytes, 0, imageBytes.Length);
+                    var uploadParams = new ImageUploadParams()
+                    {
+                        File = new FileDescription(imageFileName, stream),
+                        
+                    };
+
+                    var uploadResult = cloudinary.Upload(uploadParams);
+                    
+                    AuthService authService = new AuthService();
+                    var currentUser = authService.GetByUserName(userName);
+                    Domain.Image imageModel = new Domain.Image()
+                    {
+                        Name = uploadResult.Uri.OriginalString,
+                        MoodId = 1,
+                        Owner = Mapper.Map<User>(currentUser)
+                    };
+                    unitOfWork.ImageRepository.Create(imageModel);
+                    unitOfWork.Save();
                 }
-                AuthService authService = new AuthService();
-                var currentUser = authService.GetByUserName(userName);
-                Domain.Image imageModel = new Domain.Image()
-                {
-                    Name = imageFileName,
-                    MoodId = 1,
-                    Owner = Mapper.Map<User>(currentUser)
-                };
-                unitOfWork.ImageRepository.Create(imageModel);
-                unitOfWork.Save();
+
                 return true;
             }
             catch (Exception ex)

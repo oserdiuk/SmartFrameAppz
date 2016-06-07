@@ -201,6 +201,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\main.png" />
     <Content Include="Content\Images\14839200148_e39b2136f0_o.jpg" />
     <Content Include="Content\Images\LQiFPNoZ--M.jpg" />
     <Content Include="Content\Images\test.jpg" />
@@ -210,6 +211,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Properties\DataSources\SmartFrame.Services.DataContracts.ImageContract.datasource" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -245,9 +247,6 @@
     <None Include="Service References\ImageServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\ImageServiceReference\SmartFrame.ImageServiceReference.ImageContract.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\ImageServiceReference\SmartFrame.Services.DataContracts.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -321,6 +320,10 @@
     <ProjectReference Include="..\AutofacModules\AutofacModules.csproj">
       <Project>{b527afa2-b53a-4682-b838-8c543dcfff53}</Project>
       <Name>AutofacModules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartFrame.Services\SmartFrame.Services.csproj">
+      <Project>{7377d51d-941b-4160-9505-284ed7190d1c}</Project>
+      <Name>SmartFrame.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

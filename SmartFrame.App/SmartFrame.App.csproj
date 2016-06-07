@@ -105,6 +105,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ImageServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\PhotoModeServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -132,6 +137,22 @@
     <None Include="Service References\AuthorizationServiceReference\SmartFrame.Services.DataContracts.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ImageServiceReference\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ImageServiceReference\service.wsdl" />
+    <None Include="Service References\ImageServiceReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ImageServiceReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ImageServiceReference\SmartFrame.App.ImageServiceReference.ImageContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ImageServiceReference\SmartFrame.Services.DataContracts.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\PhotoModeServiceReference\service.wsdl" />
     <None Include="Service References\PhotoModeServiceReference\service.xsd">
       <SubType>Designer</SubType>
@@ -156,6 +177,12 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <None Include="Service References\ImageServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ImageServiceReference\configuration.svcinfo" />
+    <None Include="Service References\ImageServiceReference\configuration91.svcinfo" />
     <None Include="Service References\PhotoModeServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -188,6 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AuthorizationServiceReference\" />
+    <WCFMetadataStorage Include="Service References\ImageServiceReference\" />
     <WCFMetadataStorage Include="Service References\PhotoModeServiceReference\" />
   </ItemGroup>
   <ItemGroup>

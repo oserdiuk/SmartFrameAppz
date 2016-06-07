@@ -1,8 +1,11 @@
-﻿@model SmartFrame.Models.Images.UserImageViewModel
+﻿@using System.ServiceModel
+@using System.ServiceModel.Activation
+@model SmartFrame.Models.Images.UserImageViewModel
 
 @{
+    var r = OperationContext.Current;
     ViewBag.Title = "My images";
-}
+}   
 
 <h2>My images</h2>
 
@@ -11,16 +14,17 @@
     <label for="file">Upload Image:</label>
     <input type="file" name="file" id="file" style="width: 100%;" />
     <input type="submit" value="Upload" class="submit" />
-}
 
+}
+    @*<img src="file://D:\Study\SmartFrame\SmartFrame.Services\bin\Debug\Images\6f9f1c76-386c-4729-9b6a-b6c4e892e9e1.jpeg" />*@
 <div>
     <hr />
     <dl class="dl-horizontal">
+        
         @foreach (var item in Model.ImageNames)
         {
             <dd>
-                <img src="file:///D:/Study/SmartFrame/SmartFrame.Services/bin/Debug/Images/6f9f1c76-386c-4729-9b6a-b6c4e892e9e1.jpeg">
-                @*<img src=@String.Format("file:{0}{1}", Model.ImagesPath, item)/>*@
+                <img src=@item height='400'style="margin: 1em 1em 1em 1em   " />
             </dd>
         }
     </dl>

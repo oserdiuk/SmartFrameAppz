@@ -32,7 +32,7 @@ namespace SmartFrame.Controllers
 
         public ActionResult GetMyImages()
         {
-            Mapper.CreateMap<ImageServiceReference.ImageContract, UserImageViewModel>();
+            Mapper.CreateMap<Services.DataContracts.ImageContract, UserImageViewModel>();
 
             using (ImageServiceClient client = new ImageServiceClient())
             {
