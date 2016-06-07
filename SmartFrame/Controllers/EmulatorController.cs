@@ -14,20 +14,28 @@ namespace SmartFrame.Controllers
         private readonly string apiKey = "beh4sh3g8s9effzxrhjmxm8f";
         private readonly string secret = "A27r9J6BFxthsfZmGdNudvTefr7sfcSFNN7Z5fQbaTuMk";
         // GET: Emulator
-        public  async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string keyWord = "all vocabulary")
         {
             var client = ApiClient.GetApiClientWithClientCredentials(apiKey, secret);
-            var searchResult =  await client.Search()
+            var searchResult = await client.Search()
                 .Images()
-                .Editorial()
-                .WithEditorialSegment(EditorialSegment.News)
-                .WithPhrase("all vocabulary")
-                .WithSortOrder("newest")
+                .WithPhrase(keyWord)
+                .WithSortOrder("best_match")
                 .WithPageSize(10)
-                .WithPage(1)
+                .WithPage(new Random().Next(15))
                 .ExecuteAsync();
-            var r = searchResult.images.ToList();
-            return View();
+
+            List<string> result = new List<string>();
+            foreach (var image in searchResult.images)
+            {
+                foreach (var item in image.display_sizes)
+                {
+                    var r = item.uri;
+                    result.Add(r.ToString());
+                }
+            }
+
+            return View(result);
         }
     }
 }
